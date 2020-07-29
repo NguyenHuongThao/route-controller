@@ -1,15 +1,17 @@
-h1 Users
+extends ../layout/common
+block content
+	h1 Users
 
-a(href="/users/create") New
-//khi click vao new thi se nhay sang link create
-form(action="/users/search", method="GET")
-	input(type="text", name="q")
-	button Search
+	a(href="/users/create") New
+	//khi click vao new thi se nhay sang link create
+	form(action="/users/search", method="GET")
+		input(type="text", name="q", class="form-control")
+		button(class="btn btn-primary ml-2) Search
 
-ul
-	each user in users
+	ul
+		each user in users
 
-		li
-			span= user.name
-			span &nbsp;
-			a(href='/users' + user.id) View
+			li
+				span= user.name
+				span &nbsp;
+				a(href='/users/' + user.id) View
