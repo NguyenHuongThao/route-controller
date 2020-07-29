@@ -1,0 +1,15 @@
+h1 Users
+
+a(href="/users/create") New
+//khi click vao new thi se nhay sang link create
+form(action="/users/search", method="GET")
+	input(type="text", name="q")
+	button Search
+
+ul
+	each user in users
+
+		li
+			span= user.name
+			span &nbsp;
+			a(href='/users' + user.id) View
