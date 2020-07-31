@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 //sử dụng req.body sau khi đã install body parse
 
 
-
+app.use('/static', express.static('public'))
 
 app.get('/', function(request, response) {
 	response.render('index', {

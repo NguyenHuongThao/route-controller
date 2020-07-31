@@ -38,5 +38,18 @@ module.exports.postCreate = function(req,res){
 	db.get('users').push(req.body).write();
 	//post lưu trữ thông tin ng dùng gửi lên
 	//redirect đưa ng dùng về trang index với những data đã update
+	if (!req.body.name) {
+		errors.push('name is required.');
+	}
+	if (!req.body.phone) {
+		errors.push('phone is required.');
+	}
+	if (errors.length) {
+		res.render('user/create', {
+			errors: errors
+			value: req.body
+		});
+		return;
+	}
 	res.redirect('/users');
 };
